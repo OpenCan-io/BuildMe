@@ -34,3 +34,26 @@
   font-weight: 900;
   color: white;
 }
+
+.empty-button, button.close {
+  border: 0;
+  background: none;
+}
+
+table td {
+  vertical-align: middle;
+}
+
+table tr, table tr label {
+  cursor: pointer;
+}
+
+table tr:hover {
+  background-color: white;
+}
+
+table td.project-name {
+  width: 70%;
+} table td.like-cell, table td.action {
+  width: 10%;
+} table td.action { text-align: right; }

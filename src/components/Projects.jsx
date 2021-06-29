@@ -1,29 +1,26 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
+
+import Project from './Project';
+import Table from 'react-bootstrap/Table';
 
 function Projects(props) {
+
   return (
-    <table className="table table-striped table-bordered">
-      {<tbody>
-        {Object.entries(props).map(
-          proj =>
-            <tr key={proj[1].id}>
-              <td>
-                < input name="name" value={proj[1].projectName} type="text"
-                  />
-              </td>
-              <td>
-                <button onClick={() => editProject(proj[1].id)} className="btn btn-info">View</button>
-              </td>
-              <td>
-                <button onClick={() => editProject(proj[1].id)} className="btn btn-info">Upvotes</button>
-              </td>
-              <td>
-                <button onClick={() => editProject(proj[1].id)} className="btn btn-info">Downvotes</button>
-              </td>
-            </tr>
-        )}
-      </tbody>}
-    </table>
+    <>
+      <h3 className="py-1">Projects</h3>
+      <Table responsive className="my-4" >
+        {<tbody>
+          {Object.entries(props.projects).map(
+            project =>
+              <Project 
+                key={project[1].id} 
+                project={project[1]}
+                loggedIn={props.loggedIn}
+                onViewProject={props.onViewProject} />
+          )}
+        </tbody>}
+      </Table>
+    </>
   )
 }
 
